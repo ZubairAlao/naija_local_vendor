@@ -3,6 +3,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { MainErrorFallback } from '@/components/errors/main';
+import { Provider } from 'react-redux';
+import { store } from '@/redux/store';
 
 
 type AppProviderProps = {
@@ -21,7 +23,9 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     >
       <ErrorBoundary FallbackComponent={MainErrorFallback}>
         <HelmetProvider>
+          <Provider store={store}>
             {children}
+          </Provider>
         </HelmetProvider>
       </ErrorBoundary>
     </React.Suspense>
