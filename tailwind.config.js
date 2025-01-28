@@ -9,10 +9,21 @@ export default {
     extract,
   },
   theme: {
+    screens,
+    fontSize,
   	extend: {
   		backgroundImage: {},
-  		fontFamily: {},
-  		colors: {},
+  		fontFamily: {
+        sans: ["Satoshi", "sans-serif"],
+      },
+  		colors: {
+        primary: "#008753", // Nigeria green
+        secondary: "#FFC107", // Gold for accents
+        white: "#FFFFFF", // White background
+        lightGray: "#F5F5F5", // Light gray for subtle backgrounds
+        textPrimary: "#222222", // Dark text
+        accentRed: "#E53935", // Red for warnings or CTAs
+      },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

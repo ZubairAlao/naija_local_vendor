@@ -5,7 +5,7 @@ const DesktopNav = () => {
 
 
   return (
-    <nav aria-label="Main Navigation" className="hidden lg:flex justify-center items-center gap-4 text-black">
+    <nav aria-label="Main Navigation" className="hidden lg:flex justify-center items-center gap-4">
       <ul className="flex justify-center items-center space-x-[24px] relative">
         {headerLinks.map((link) => (
           <li

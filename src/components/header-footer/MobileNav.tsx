@@ -13,7 +13,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ toggle, handleToggleButton, close
       aria-label="Mobile Navigation"
       className={`${
         toggle ? "translate-x-0 opacity-100" : "translate-x-full opacity-50"
-      } absolute right-0 top-0 z-30 mt-[74px] flex h-screen w-[100%] transform flex-col overflow-y-scroll bg-white p-6 text-[#121212] transition-all duration-500 ease-in-out lg:mt-[94px] lg:hidden`}
+      } absolute right-0 top-0 z-30 mt-[74px] flex h-screen w-[100%] transform flex-col overflow-y-scroll bg-white p-6 text-black transition-all duration-500 ease-in-out lg:mt-[94px] lg:hidden`}
     >
       <ul className="pb-32">
         {headerLinks.map((link) => (

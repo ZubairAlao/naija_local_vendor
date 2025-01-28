@@ -1,4 +1,4 @@
-import HeaderLogo from "@/assets/react.svg";
+import HeaderLogo from "@/assets/naija_vendor_market.png";
 import { Link } from "react-router";
 
 const Logo = () => {

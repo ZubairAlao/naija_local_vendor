@@ -23,15 +23,9 @@
 
 
 body {
-  @apply  text-[1rem] font-[400] leading-[36px] md:text-[1.15rem] lg:text-[1.5rem];
+  @apply  text-[1rem] font-sans font-[400] leading-[36px] md:text-[1.15rem] lg:text-[1.5rem];
 }
 
-/* home page body styling */
-.homepage p,
-footer p,
-footer a {
-  @apply text-[1rem] leading-normal md:text-[1.15rem] lg:text-[1.15rem];
-}
 
 .h1 {
   @apply text-[3rem] font-[900] leading-[56px] md:text-[4.5rem] md:leading-[80px] lg:text-[6.56rem] lg:leading-[105px];
@@ -45,10 +39,6 @@ footer a {
   @apply text-[1.5rem] font-[400] leading-[30px] tracking-[-0.02em] lg:text-[2rem] lg:leading-[41px];
 }
 
-/* for every other pages apart from home page */
-.subheading {
-  @apply text-[2rem] font-[600] leading-[36px] lg:text-[2.25rem] lg:leading-[50px];
-}
 
 a {
   @apply no-underline;
