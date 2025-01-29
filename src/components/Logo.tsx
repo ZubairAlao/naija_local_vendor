@@ -13,7 +13,7 @@ const Logo = () => {
         <img
           src={HeaderLogo}
           alt="Home"
-          className="h-[40px] w-[40px]"
+          className="h-[50px] w-[50px]"
           loading="lazy"
         />
       </Link>

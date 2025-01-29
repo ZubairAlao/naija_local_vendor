@@ -5,9 +5,10 @@ import { IoClose } from "react-icons/io5";
 import { MenuIcon } from "lucide-react";
 import DesktopNav from "./DesktopNav";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { FaUserCircle } from "react-icons/fa"; // For Account
+import { FaPhoneAlt, FaUserCircle } from "react-icons/fa"; // For Account
 import { FaShoppingCart } from "react-icons/fa";
 import SearchBar from "../SearchBar";
+import { Link } from "react-router";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -77,57 +78,67 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full text-black shadow-lg transition-all duration-500 ~py-4/6 ~text-[0.87rem]/[1rem]`}>
-      <div className='flex justify-between items-center container'>
-        <div className="flex gap-4 justify-between items-start">
-          <Logo />
+      className={`fixed top-0 z-50 w-full shadow-lg transition-all duration-500 ~text-[0.87rem]/[1rem] bg-white`}>
+        <div className="bg-primary">
+          <div className="flex justify-between items-center container text-white">
+            <div className="flex justify-center items-center gap-2">
+              <FaPhoneAlt className="text-lg" />
+              <p>+234 8130030894</p>
+            </div>
+            <div><span>Grab Upto 50% off of the selected Items</span> {" | "} <Link to="/buy">Shop Now</Link></div>
+          </div>
         </div>
 
-          {/* mobile nav bar */}
-          <div ref={menuRef} className="lg:hidden">
-            <MobileNav
-              toggle={toggle}
-              handleToggleButton={handleToggleButton}
-              closeMenu={closeMenu}
-            />
+        <div className='flex justify-between items-center container py-4'>
+          <div className="flex gap-4 justify-between items-start">
+            <Logo />
           </div>
-          <DesktopNav />
 
-          <SearchBar />
-          
-          {/* toggle button */}
-          {toggle ? (
-            <button
-              aria-label="Toggle navigation menu"
-              className="relative z-30 cursor-pointer object-contain text-black"
-              onClick={handleToggleButton}
-            >
-              <IoClose size={32} className="" />
-            </button>
-          ) : (
-            <button
-              aria-label="Toggle navigation menu"
-              className="relative z-30 cursor-pointer object-contain text-black lg:hidden"
-              onClick={handleToggleButton}
-            >
-              <MenuIcon className="h-fit w-[32px]" />
-            </button>
-          )}
-          
-          <div className="hidden lg:flex justify-between items-center ~gap-4/6">
-            {/* Account Section */}
-            <div className="flex items-center space-x-2">
-              <FaUserCircle className="text-2xl" /> {/* Account Icon */}
-              <p className="text-sm">Account</p>
+            {/* mobile nav bar */}
+            <div ref={menuRef} className="lg:hidden">
+              <MobileNav
+                toggle={toggle}
+                handleToggleButton={handleToggleButton}
+                closeMenu={closeMenu}
+              />
             </div>
+            <DesktopNav />
 
-            {/* Cart Section */}
-            <div className="flex items-center space-x-2">
-              <FaShoppingCart className="text-2xl" /> {/* Cart Icon */}
-              <p className="text-sm">Cart</p>
+            <SearchBar />
+            
+            {/* toggle button */}
+            {toggle ? (
+              <button
+                aria-label="Toggle navigation menu"
+                className="relative z-30 cursor-pointer object-contain text-black"
+                onClick={handleToggleButton}
+              >
+                <IoClose size={32} className="" />
+              </button>
+            ) : (
+              <button
+                aria-label="Toggle navigation menu"
+                className="relative z-30 cursor-pointer object-contain text-black lg:hidden"
+                onClick={handleToggleButton}
+              >
+                <MenuIcon className="h-fit w-[32px]" />
+              </button>
+            )}
+            
+            <div className="hidden lg:flex justify-between items-center ~gap-4/6">
+              {/* Account Section */}
+              <div className="flex items-center space-x-2">
+                <FaUserCircle className="text-2xl" /> {/* Account Icon */}
+                <p className="text-sm">Account</p>
+              </div>
+
+              {/* Cart Section */}
+              <div className="flex items-center space-x-2">
+                <FaShoppingCart className="text-2xl" /> {/* Cart Icon */}
+                <p className="text-sm">Cart</p>
+              </div>
             </div>
-          </div>
-      </div>
+        </div>
     </header>
   );
 };

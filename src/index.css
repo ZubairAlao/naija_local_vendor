@@ -23,7 +23,7 @@
 
 
 body {
-  @apply  text-[1rem] font-sans font-[400] leading-[36px] md:text-[1.15rem] lg:text-[1.5rem];
+  @apply  text-[1rem] text-textPrimary font-sans font-[400] leading-[36px] md:text-[1.15rem] lg:text-[1.5rem];
 }
 
 

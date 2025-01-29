@@ -6,6 +6,7 @@ import { MainErrorFallback } from '@/components/errors/main';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 
+import { AnimatePresence } from "framer-motion";
 
 type AppProviderProps = {
   children: React.ReactNode;
@@ -24,7 +25,9 @@ export const AppProvider = ({ children }: AppProviderProps) => {
       <ErrorBoundary FallbackComponent={MainErrorFallback}>
         <HelmetProvider>
           <Provider store={store}>
-            {children}
+            <AnimatePresence mode="wait">
+                {children}
+              </AnimatePresence>
           </Provider>
         </HelmetProvider>
       </ErrorBoundary>
