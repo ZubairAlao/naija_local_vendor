@@ -78,11 +78,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full shadow-lg transition-all duration-500 ~text-[0.87rem]/[1rem] bg-white`}>
+      className={`fixed top-0 z-50 w-full shadow-lg transition-all duration-500 ~text-[0.87rem]/[1rem] bg-white leading-normal`}>
         <div className="bg-primary">
-          <div className="flex justify-between items-center container text-white">
-            <div className="flex justify-center items-center gap-2">
-              <FaPhoneAlt className="text-lg" />
+          <div className="flex justify-between items-center container text-white ~text-[0.6rem]/[1rem]">
+            <div className="flex justify-center items-center ~gap-1/2">
+              <FaPhoneAlt className="~text-md/text-lg" />
               <p>+234 8130030894</p>
             </div>
             <div><span>Grab Upto 50% off of the selected Items</span> {" | "} <Link to="/buy">Shop Now</Link></div>
