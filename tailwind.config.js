@@ -17,8 +17,9 @@ export default {
         sans: ["Satoshi", "sans-serif"],
       },
   		colors: {
-        primary: "#008753", // Nigeria green
-        secondary: "#FFC107", // Gold for accents
+        primary: "#008753", // Green from logo
+        secondary: "#FF7F32", // Orange from logo
+        lightGreen: "#6BCB77", // Light green from logo
         white: "#FFFFFF", // White background
         lightGray: "#F5F5F5", // Light gray for subtle backgrounds
         textPrimary: "#222222", // Dark text

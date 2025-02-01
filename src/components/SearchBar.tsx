@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi"; // Importing search icon from react-i
 
 const SearchBar = () => {
   return (
-    <div className="relative w-full max-w-[20rem]">
+    <div className="relative w-full">
       {/* Search Icon */}
       <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl" />
 

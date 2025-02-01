@@ -1,15 +1,15 @@
 
 import LandingpageBanner from '@/components/LandingpageBanner';
-import React from 'react';
+import ProductList from '@/features/products/ProductList';
 
-const LandingPage: React.FC = () => {
+const LandingPage = () => {
     return (
-        <div className="antialiased text-gray-800 max-lg:py-16 lg:min-h-screen flex justify-center items-center">
-            <section className='container'>
+        <section className="antialiased text-gray-800 py-16  flex justify-center items-center">
+            <div className='container space-y-16'>
                 <LandingpageBanner />
-
-            </section>
-        </div>
+                <ProductList />
+            </div>
+        </section>
     );
 };
 

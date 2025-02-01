@@ -18,7 +18,7 @@ const DesktopNavigation: React.FC = () => {
   };
 
   return (
-    <nav className="hidden lg:flex justify-center items-center gap-4" onMouseLeave={handleMouseLeave}>
+    <nav className="hidden lg:flex justify-center items-center gap-4 w-full" onMouseLeave={handleMouseLeave}>
       <ul className="flex justify-center items-center space-x-4 relative">
         {headerLinks.map((navItem, index) => (
           <li key={navItem.label} className="relative">

@@ -5,14 +5,14 @@ import { IoClose } from "react-icons/io5";
 import { MenuIcon } from "lucide-react";
 import DesktopNav from "./DesktopNav";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { FaPhoneAlt, FaUserCircle } from "react-icons/fa"; // For Account
+import { FaPhoneAlt } from "react-icons/fa"; // For Account
 import { FaShoppingCart } from "react-icons/fa";
 import SearchBar from "../SearchBar";
 import { Link } from "react-router";
+import AccountPopover from "../AccountPopover";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false); //scrolling header from y0 change from transparent
 
   const handleToggleButton = () => {
     setToggle(!toggle);
@@ -41,16 +41,6 @@ const Header = () => {
           document.removeEventListener("mousedown", handleClickOutside);
         };
       }, []);
-
-  // Change 50 to the scroll position where you want the header to change
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Manage body scroll lock on toggle
   useEffect(() => {
@@ -89,23 +79,8 @@ const Header = () => {
           </div>
         </div>
 
-        <div className='flex justify-between items-center container py-4'>
-          <div className="flex gap-4 justify-between items-start">
-            <Logo />
-          </div>
-
-            {/* mobile nav bar */}
-            <div ref={menuRef} className="lg:hidden">
-              <MobileNav
-                toggle={toggle}
-                handleToggleButton={handleToggleButton}
-                closeMenu={closeMenu}
-              />
-            </div>
-            <DesktopNav />
-
-            <SearchBar />
-            
+        <div className='flex justify-between items-center container gap-3 py-4'>
+          <div className="flex gap-2 items-center min-w-fit">
             {/* toggle button */}
             {toggle ? (
               <button
@@ -124,18 +99,29 @@ const Header = () => {
                 <MenuIcon className="h-fit w-[32px]" />
               </button>
             )}
+            <Logo />
+          </div>
+
+            {/* mobile nav bar */}
+            <div ref={menuRef} className="lg:hidden">
+              <MobileNav
+                toggle={toggle}
+                handleToggleButton={handleToggleButton}
+              />
+            </div>
+            <DesktopNav />
+
+            <SearchBar />
             
-            <div className="hidden lg:flex justify-between items-center ~gap-4/6">
+            
+            <div className="flex justify-between items-center ~gap-2/6">
               {/* Account Section */}
-              <div className="flex items-center space-x-2">
-                <FaUserCircle className="text-2xl" /> {/* Account Icon */}
-                <p className="text-sm">Account</p>
-              </div>
+              <AccountPopover />
 
               {/* Cart Section */}
               <div className="flex items-center space-x-2">
                 <FaShoppingCart className="text-2xl" /> {/* Cart Icon */}
-                <p className="text-sm">Cart</p>
+                <p className="text-sm hidden lg:block">Cart</p>
               </div>
             </div>
         </div>
