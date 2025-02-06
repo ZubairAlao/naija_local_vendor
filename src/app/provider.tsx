@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 
 import { AnimatePresence } from "framer-motion";
+import { Toaster } from '@/components/ui/toaster';
 
 type AppProviderProps = {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
             <AnimatePresence mode="wait">
                 {children}
               </AnimatePresence>
+              <Toaster />
           </Provider>
         </HelmetProvider>
       </ErrorBoundary>
