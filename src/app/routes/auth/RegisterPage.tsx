@@ -6,7 +6,7 @@ const RegisterPage = () => {
     <div className='mt-40 min-h-screen px-8 text-textPrimary'>
       <div className="text-center mb-8">
         <h1 className="h3 font-bold text-primary">Create Your Account</h1>
-        <p className="text-center mt-4">
+        <p className="text-center">
           Already have an account?{" "}
           <Link to="/sign-in" className="text-primary font-semibold hover:underline">
             Log in

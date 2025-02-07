@@ -3,12 +3,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react"
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
 } from "@/components/ui/form"
 import CustomFormField from "@/components/CustomFormField";
 import { useForm } from "react-hook-form"
@@ -44,9 +38,11 @@ const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <CustomFormField control={form.control} name="email" label="Email" placeholder="Enter Email" />
-        <CustomFormField control={form.control} name="password" label="Password" type="password" placeholder="*******" />
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+        <div className="space-y-4">
+          <CustomFormField control={form.control} name="email" label="Email" placeholder="Enter Email" />
+          <CustomFormField control={form.control} name="password" label="Password" type="password" placeholder="*******" />
+        </div>
         <SubmitButton
           isLoading={isLoading} 
           children={"submit"} 

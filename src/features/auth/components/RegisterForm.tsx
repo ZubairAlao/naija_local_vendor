@@ -44,7 +44,7 @@ const RegisterForm = () => {
           confirm_password:"",
           
           sex: "other",
-          birthDate: new Date(Date.now()),
+          birth_date: new Date(Date.now()),
           avatar_url: [],
           
           role: "",
@@ -66,12 +66,21 @@ const RegisterForm = () => {
     const selectedRole = form.watch("role");
     console.log(selectedRole);
 
-    
+    const scrollToForm = () => {
+      const element = document.getElementById("register-form");
+      const offset = 150;
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - offset,
+          behavior: "smooth", // Enables smooth scrolling
+        });
+      }
+    };
     
     function onSubmit(values: z.infer<typeof userSchema>) {
       // Do something with the form values.
       // ✅ This will be type-safe and validated.
-      setIsLoading(true)
+      setIsLoading(true);
 
       setTimeout(() => {
         console.log(values); 
@@ -82,9 +91,9 @@ const RegisterForm = () => {
 
       const fieldsToValidate: Record<number, (keyof z.infer<typeof userSchema>)[]> = {
         1: ["full_name", "email", "phone_number", "password", "confirm_password"],
-        2: ["sex", "birthDate", "avatar_url"],
+        2: ["sex", "birth_date", "avatar_url"],
         3: ["admin_password", "guarantor_name", "role", "guarantor_address", "website", "market_address", "address"],
-        4: ["bank_account_number", "bank_name", "bank_account_number","bank_name"],
+        4: ["business_name", "business_account_name", "bank_name","bank_account_number"],
       };
       
       const nextStep = async () => {
@@ -93,16 +102,20 @@ const RegisterForm = () => {
       
         if (isValid) {
           console.log("Current Form Values:", form.getValues());
+          scrollToForm();
           setStep((prev) => prev + 1);
         } else {
           console.log("Errors:", form.formState.errors);
           console.log("Current Form Values:", form.getValues());
         }
       };
-      const prevStep = () => setStep((prev) => prev - 1);
+      const prevStep = () => {
+        setStep((prev) => prev - 1);
+        scrollToForm();
+      } 
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
+    <div className="max-w-3xl mx-auto space-y-6" id="register-form">
 
       {/* Step Numbers */}
       <div className="flex justify-center items-center my-4 text-sm">
@@ -203,7 +216,7 @@ const RegisterForm = () => {
                   />
                   <FormField
                     control={form.control}
-                    name="birthDate" 
+                    name="birth_date" 
                     render={({ field }) => (
                       <FormItem className="w-full">
                         <FormLabel className="block">Date of Birth</FormLabel>
@@ -314,7 +327,7 @@ const RegisterForm = () => {
               </div>
             )}
 
-            {step === 5 && <ReviewComponent />}
+            {step === 5 && <ReviewComponent goToStep={setStep} />}
         </div>
 
           {/* Navigation Buttons */}

@@ -15,7 +15,7 @@ export const userSchema = z.object({
   confirm_password: z.string().min(6),
   
   
-  birthDate: z.coerce.date().refine(date => date < new Date(), {
+  birth_date: z.coerce.date().refine(date => date < new Date(), {
     message: "Birthdate must be in the past",
   }),
   avatar_url: z.custom<File[]>().optional(),
